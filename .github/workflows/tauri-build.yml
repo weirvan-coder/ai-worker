@@ -30,6 +30,7 @@ jobs:
         run: |
           cd frontend
           npm ci
+          npm list
 
       - name: Setup Rust toolchain
         uses: dtolnay/rust-toolchain@stable
@@ -39,12 +40,24 @@ jobs:
         with:
           workspaces: frontend/src-tauri -> Cargo.lock
 
+      - name: Debug info
+        run: |
+          node --version
+          npm --version
+          rustc --version
+          cargo --version
+          cd frontend
+          cat package.json
+
+      - name: Build frontend
+        run: |
+          cd frontend
+          npm run build
+
       - name: Build Tauri app
-        uses: tauri-apps/tauri-action@v0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          projectPath: frontend
+        run: |
+          cd frontend
+          npx tauri build --verbose
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4

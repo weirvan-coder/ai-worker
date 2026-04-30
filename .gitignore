@@ -1,0 +1,61 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+env/
+
+# Node.js
+node_modules/
+dist/
+.cache/
+
+# Rust/Cargo target directory (built by CI)
+frontend/src-tauri/target/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Environment variables
+.env
+.env.local
+
+# Logs
+logs/*.md
+!logs/.gitkeep
+
+# Build artifacts
+ppts/*.pptx
+build-temp/
+
+# Test files
+_test_*.py
